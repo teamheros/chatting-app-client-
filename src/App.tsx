@@ -1,9 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Nav from './components/nav/Nav';
+import ChatBody from './components/chatBody/ChatBody'
 
 function App() {
-  return <div></div>;
+  return <div className="main">
+    <Nav />
+    <ChatBody />
+  </div>;
 }
 
 export default App;
