@@ -1,0 +1,6 @@
+.col a{
+  color: rgb(96, 155, 233) !important;
+}
+.col a:hover{
+  color: rgb(35, 122, 235) !important;
+}
