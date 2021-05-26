@@ -2,8 +2,10 @@ import { TextField } from "@material-ui/core";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "antd";
-import {UserOutlined} from '@ant-design/icons'
-import '../css/login.css'
+import { UserOutlined } from "@ant-design/icons";
+import { selectForm } from "../redux/actions";
+import { useDispatch } from "react-redux";
+import "../css/login.css";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -15,6 +17,8 @@ const LoginForm = () => {
     e.preventDefault();
     setValidator(true);
   };
+
+  const dispatch = useDispatch();
 
   return (
     <div className="form">
@@ -62,7 +66,7 @@ const LoginForm = () => {
           </div>
 
           <div className="col">
-            <a href="#!">
+            <a className="link" href="#!">
               Forgot password?
             </a>
           </div>
@@ -78,7 +82,8 @@ const LoginForm = () => {
 
         <div className="text-center">
           <p>
-            Not a member? <a>Register</a>
+            Not a member?{" "}
+            <a className="link" onClick={() => dispatch(selectForm("SIGN_UP"))}>Register</a>
           </p>
         </div>
       </form>

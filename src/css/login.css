@@ -1,6 +1,9 @@
-.col a{
+.link {
   color: rgb(96, 155, 233) !important;
+  text-decoration: none !important;
 }
-.col a:hover{
+.link:hover {
   color: rgb(35, 122, 235) !important;
+  text-decoration: underline !important;
+  cursor: pointer;
 }
