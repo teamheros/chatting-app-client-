@@ -4,7 +4,7 @@ import ProfilePic from "../../images/userprofile5.jpg"
 
 const UserProfile = () => {
 
-    const toggleInfo = (e) => {
+    const toggleInfo = (e:any) => {
     e.target.parentNode.classList.toggle("open");
   };
 
