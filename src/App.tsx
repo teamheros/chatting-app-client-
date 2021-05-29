@@ -6,12 +6,15 @@ import store from "./redux/redux";
 import Nav from './components/nav/Nav';
 import ChatBody from './components/chatBody/ChatBody'
 
+
 function App() {
   return (
     <Provider store={store}>
-      <MainPage />
-      <Nav />
+      {/* <MainPage /> */}
+      {/* <Nav /> */}
     <ChatBody />
     </Provider>
   )
 }
+
+export default App;
