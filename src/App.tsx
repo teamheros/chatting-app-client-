@@ -10,9 +10,9 @@ import ChatBody from './components/chatBody/ChatBody'
 function App() {
   return (
     <Provider store={store}>
-      {/* <MainPage /> */}
-      {/* <Nav /> */}
-    <ChatBody />
+      <MainPage />
+      {/* <Nav />
+    <ChatBody /> */}
     </Provider>
   )
 }
