@@ -49,7 +49,6 @@ const LoginForm = () => {
             }}
           />
         </div>
-        {/* <Input placeholder="text" prefix={""} /> */}
 
         <div className="row mb-4">
           <div className="col d-flex justify-content-center">
