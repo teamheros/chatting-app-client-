@@ -1,11 +1,15 @@
 import { reduceEachTrailingCommentRange } from "typescript";
-import { FORM_DISPLAY } from "./actionTypes";
+import { FORM_DISPLAY, USERS_CHAT } from "./actionTypes";
 
-const initialState = {
+const formInitialState = {
   formDisplay: "LOGIN_FORM",
 };
 
-export const formReducer = (state = initialState, action: any) => {
+const usersChatInitialState = {
+  chats : []
+}
+
+export const formReducer = (state = formInitialState, action: any) => {
   switch (action.type) {
     case FORM_DISPLAY:
       return { ...state, formDisplay: action.payload };
@@ -13,5 +17,14 @@ export const formReducer = (state = initialState, action: any) => {
       return state;
   }
 };
+
+export const usersChatsReducer = (state = usersChatInitialState, action :any) =>{
+  switch (action.type) {
+    case USERS_CHAT:
+      return { ...state, chats : action.payload };
+    default:
+      return state;
+  } 
+}
 
 

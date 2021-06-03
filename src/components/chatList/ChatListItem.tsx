@@ -1,6 +1,13 @@
+import { useDispatch } from "react-redux";
+import { getChats } from "../../services/chatServices";
 import Avatar from "./Avatar";
 function ChatListItem(props: any) {
+
+  const dispatch = useDispatch();
   const selectChat = (e: any) => {
+
+    
+    getChats(["saurav","rutu"], dispatch)
     for (
       let index = 0;
       index < e.currentTarget.parentNode.children.length;
@@ -16,6 +23,7 @@ function ChatListItem(props: any) {
       style={{ animationDelay: `0.${props.animationDelay}s` }}
       onClick={selectChat}
       className={`chatlist__item ${props.active ? props.active : ""} `}
+      
     >
       <Avatar
         image={props.image ? props.image : "http://placehold.it/80x80"}

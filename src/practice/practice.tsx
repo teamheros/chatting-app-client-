@@ -8,7 +8,7 @@ function Practice() {
   const [message, setMessage] = useState("");
   const [text, setText] = useState("");
 
-  useEffect(() => {
+  const connect = () =>{
     const socket = socketIOClient(ENDPOINT, { transports: ["websocket"] });
 
     socket.on("connection", (data) => {
@@ -19,6 +19,10 @@ function Practice() {
         console.log(text)
       setText(message + "    >>>   " + data);
     });
+  }
+
+  useEffect(() => {
+   
   }, []);
 
   const sendSocket = () => {
@@ -30,6 +34,7 @@ function Practice() {
       <h1>Message : {text}</h1>
       <input onChange={(e: any) => setMessage(e.target.value)}></input>
       <button onClick={sendSocket}>Click</button>
+      <button onClick={connect}>Connect</button>
     </div>
   );
 }
