@@ -102,6 +102,7 @@ const LoginForm = () => {
   return (
     <div className="form">
       <form>
+        {credentialsScreen()}
         <div className="text-center">
           <p>
             Not a member?{" "}

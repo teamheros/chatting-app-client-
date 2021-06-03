@@ -4,29 +4,38 @@ import { useDispatch } from "react-redux";
 
 import "../css/login.css";
 import { selectForm } from "../redux/actions";
-
+import { signUp } from "../services/userServices";
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [gender, setGender] = useState("");
   const [profileImage, setProfileImage] = useState("");
-  const [bio, setBio] = useState("");
+  const [bioData, setBioData] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e: any) => {
-    const data = {firstName, lastName, username, email, phone, gender, profileImage, bio, password, confirmPassword}
     e.preventDefault();
-    console.log(data);
-    
+    const data = {
+      firstName,
+      lastName,
+      username,
+      email,
+      phoneNumber,
+      gender,
+      profileImage,
+      bioData,
+      password,
+      confirmPassword,
+    };
+
+    signUp(dispatch, data);
   };
 
   return (
@@ -69,11 +78,11 @@ const SignUpForm = () => {
           <TextField
             className="textfield"
             label="Phone"
-            value={phone}
+            value={phoneNumber}
             helperText=""
             error={false}
             onChange={(e: any) => {
-              setPhone(e.target.value);
+              setPhoneNumber(e.target.value);
             }}
           />
         </div>
@@ -112,9 +121,9 @@ const SignUpForm = () => {
           <TextField
             className="textfield"
             label="Bio"
-            value={bio}
+            value={bioData}
             onChange={(e: any) => {
-              setBio(e.target.value);
+              setBioData(e.target.value);
             }}
           />
         </div>
@@ -159,7 +168,13 @@ const SignUpForm = () => {
 
         <div className="text-center">
           <p>
-            Already registered? <a className="link" onClick={()=>dispatch(selectForm("LOGIN_FORM"))}>Login</a>
+            Already registered?{" "}
+            <a
+              className="link"
+              onClick={() => dispatch(selectForm("LOGIN_FORM"))}
+            >
+              Login
+            </a>
           </p>
         </div>
       </form>

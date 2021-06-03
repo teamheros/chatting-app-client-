@@ -3,7 +3,10 @@
   text-decoration: none !important;
 }
 .link:hover {
-  color: rgb(35, 122, 235) !important;
+  color: rgb(205, 225, 252) !important;
   text-decoration: underline !important;
   cursor: pointer;
+}
+.textfield{
+  width: 100% !important;
 }
