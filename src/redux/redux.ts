@@ -1,8 +1,9 @@
 import { createStore, combineReducers } from "redux";
-import { formReducer } from "./reducer";
+import { formReducer, usersChatsReducer } from "./reducer";
 
 const reducer = combineReducers({
   form: formReducer,
+  chat : usersChatsReducer
 });
 
 const store = createStore(reducer);

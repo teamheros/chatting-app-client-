@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import "./userProfile.css";
 import ProfilePic from "../../images/userprofile5.jpg"
 

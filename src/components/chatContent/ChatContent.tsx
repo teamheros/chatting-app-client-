@@ -3,6 +3,8 @@ import { useState } from "react";
 import "./chatContent.css";
 import Avatar from "../chatList/Avatar";
 import ChatItem from "../chatContent/ChatItem";
+import { useDispatch, useSelector } from "react-redux";
+import { sendMessage } from "../../services/chatServices";
 
 const chatItems = [
   {
@@ -57,7 +59,11 @@ const chatItems = [
 ];
 
 function ChatContent(props: any) {
+  const dispatch = useDispatch();
   const [message, setMessage] = useState("");
+
+  const chats = useSelector((state: any) => state.chat.chats);
+  console.log(chats);
   return (
     <div className="main__chatcontent">
       <div className="content__header">
@@ -81,12 +87,12 @@ function ChatContent(props: any) {
       </div>
       <div className="content__body">
         <div className="chat__items">
-          {chatItems.map((item, index) => (
+          {chats.map((item: any, index: number) => (
             <ChatItem
               animationDelay={index + 2}
-              key={item.key}
-              user={item.type ? item.type : "me"}
-              msg={item.msg}
+              key={index}
+              user={item.sentBy !== "saurav" ? "other" : "me"}
+              msg={item.content}
               image={item.image}
             />
           ))}
@@ -104,7 +110,13 @@ function ChatContent(props: any) {
             onChange={(e: any) => setMessage(e.target.value)}
             value={message}
           />
-          <button className="btnSendMsg" id="sendMsgBtn">
+          <button
+            className="btnSendMsg"
+            id="sendMsgBtn"
+            onClick={() => {
+              sendMessage(dispatch, ["saurav", "rutu"], message);
+            }}
+          >
             <i className="fa fa-paper-plane"></i>
           </button>
         </div>

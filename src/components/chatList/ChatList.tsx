@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 import "./chatList.css";
 import ChatListItems from '../chatList/ChatListItem';
+import { getChats } from "../../services/chatServices";
+import { useDispatch, useSelector } from "react-redux";
+import useSelection from "antd/lib/table/hooks/useSelection";
 
 const allChats = [
   {
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU",
     id: 1,
-    name: "Tim Hover",
+    name: "Manjunath",
     active: true,
     isOnline: true,
   },
   {
     image:
-      "https://pbs.twimg.com/profile_images/1055263632861343745/vIqzOHXj.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSM6p4C6imkewkCDW-9QrpV-MMAhOC7GnJcIQ&usqp=CAU",
     id: 2,
-    name: "Ayub Rossi",
+    name: "Rutu",
     active: false,
     isOnline: false,
   },
@@ -85,6 +88,9 @@ const allChats = [
 ];
 
 function ChatList() {
+
+ 
+
   return (
     <div>
 
