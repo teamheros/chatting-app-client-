@@ -28,7 +28,7 @@ const LoginForm = () => {
       console.log('res.data  ', res.data);
 
       if (res.data.message === 'Login SuccessFul') {
-        localStorage.setItem('login', JSON.stringify(res.data.token));
+        localStorage.setItem('login', res.data.token);
         history.push('/otp');
       }
     });

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./chatContent.css";
 import Avatar from "../chatList/Avatar";
 import ChatItem from "../chatContent/ChatItem";
 import { useDispatch, useSelector } from "react-redux";
-import { sendMessage } from "../../services/chatServices";
+import { getChats, sendMessage } from "../../services/chatServices";
 
 const chatItems = [
   {
@@ -61,6 +61,10 @@ function ChatContent(props: any) {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
 
+  useEffect(()=>{
+    getChats(dispatch, ["saurav","rutu"])
+  },[])
+
   const chats = useSelector((state: any) => state.chat.chats);
   console.log(chats);
   return (
@@ -86,13 +90,13 @@ function ChatContent(props: any) {
       </div>
       <div className="content__body">
         <div className="chat__items">
-          {chatItems.map((item: any, index: number) => (
+          {chats.map((item: any, index: number) => (
             <ChatItem
               animationDelay={index + 2}
               key={index}
-              user={item.type === "" ? "other" : "me"}
+              user={item.sentBy !== "saurav" ? "other" : "me"}
               // user={item.sentBy !== "saurav" ? "other" : "me"}
-              msg={item.msg}
+              msg={item.content}
               image={item.image}
             />
           ))}

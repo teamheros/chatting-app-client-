@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={MainPage} />
-          <Route exact path="/user/:userId" component={ChatBody} />
+          <Route exact path="/chat-screen" component={ChatBody} />
           <Route exact path="/otp" component={OTP} />
         </Switch>
       </BrowserRouter>
