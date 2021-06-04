@@ -39,7 +39,9 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="form">
+    <div className="main-page-signup">
+
+    <div className="form signup-form">
       <form>
         <div className="row mb-4">
           <div className="col">
@@ -178,6 +180,7 @@ const SignUpForm = () => {
           </p>
         </div>
       </form>
+    </div>
     </div>
   );
 };

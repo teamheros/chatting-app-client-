@@ -9,3 +9,8 @@ export interface UserSignUp {
     password : String,
     confirmPassword : String
 }
+
+export interface UserLogin {
+    userId: String,
+    password: String
+}

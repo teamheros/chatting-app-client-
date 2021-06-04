@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import "./chatContent.css";
 import Avatar from "../chatList/Avatar";
 import ChatItem from "../chatContent/ChatItem";
@@ -87,12 +86,13 @@ function ChatContent(props: any) {
       </div>
       <div className="content__body">
         <div className="chat__items">
-          {chats.map((item: any, index: number) => (
+          {chatItems.map((item: any, index: number) => (
             <ChatItem
               animationDelay={index + 2}
               key={index}
-              user={item.sentBy !== "saurav" ? "other" : "me"}
-              msg={item.content}
+              user={item.type === "" ? "other" : "me"}
+              // user={item.sentBy !== "saurav" ? "other" : "me"}
+              msg={item.msg}
               image={item.image}
             />
           ))}

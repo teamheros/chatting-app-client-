@@ -13,7 +13,7 @@ const UserProfile = () => {
           <div className="profile__image">
             <img src={ProfilePic} />
           </div>
-          <h4>Manjunath S</h4>
+          <h4>Anyone</h4>
           <p>Sofware Engineer, Mindtree</p>
         </div>
         <div className="profile__card">
