@@ -12,7 +12,8 @@ export const sendMessage = async (dispatch: any, users: any, msg: string) => {
   let res = await axios.post("http://localhost:4000/api/chat", {
     users,
     msg,
-    sentBy: "saurav",
+    sentBy: "rutu",
   });
   getChats(dispatch, users);
 };
+

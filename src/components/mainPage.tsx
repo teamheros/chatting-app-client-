@@ -20,6 +20,8 @@ const MainPage = () => {
         <div className="main-form">
           {displayForm === "LOGIN_FORM" ? <LoginForm /> : <SignUpForm />}
         </div>
+        <h1>ChatHub</h1>
+        <h5>Connecting Dil ke taar....</h5>
         <img
           className="image-div"
           src="https://applian.com/img/login.svg"

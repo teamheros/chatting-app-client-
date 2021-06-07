@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import "./chatList.css";
 import ChatListItems from '../chatList/ChatListItem';
 import { getChats } from "../../services/chatServices";
 import { useDispatch, useSelector } from "react-redux";
 import useSelection from "antd/lib/table/hooks/useSelection";
+import { getUsers } from "../../services/userServices";
 
 const allChats = [
   {
@@ -89,16 +90,30 @@ const allChats = [
 
 function ChatList() {
 
- 
-
+ const dispatch=useDispatch()
+ const allusers=useSelector((store:any)=>store.user.allUsers)
+ console.log(allusers)
+ useEffect(()=>{
+  getUsers(dispatch)
+ },[])
   return (
     <div>
 
       <div className="main__chatlist">
-        <button className="btn">
-          <i className="fa fa-plus"></i>
-          <span>New conversation</span>
-        </button>
+      <div className="dropdown">
+  <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   New Conversation
+  </button>
+  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+   {
+     allusers.map((user:any)=>
+     <a className="dropdown-item" ><strong>{user.userName}</strong></a>
+       
+     )
+   }
+  
+  </div>
+</div>
         <div className="chatlist__heading">
           <h2>Chats</h2>
           <button className="btn-nobg">

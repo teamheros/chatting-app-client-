@@ -5,43 +5,71 @@ import { useDispatch } from "react-redux";
 import "../css/login.css";
 import { selectForm } from "../redux/actions";
 import { signUp } from "../services/userServices";
+import { Upload, Button } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
+  const [userName, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [gender, setGender] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [bioData, setBioData] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordConfirm, setConfirmPassword] = useState("");
 
   const dispatch = useDispatch();
+  const handleFileSubmit = (e: any) => {
+    console.log("Entered")
+   
+    console.log(e.files);
+
+  }
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const data = {
-      firstName,
-      lastName,
-      username,
-      email,
-      phoneNumber,
-      gender,
-      profileImage,
-      bioData,
-      password,
-      confirmPassword,
-    };
+    console.log()
+    const formData:any = new FormData();
 
-    signUp(dispatch, data);
+    formData.append('firstName', firstName);
+
+    formData.append('lastName', lastName);
+
+    formData.append('email', email);
+
+    formData.append('phoneNumber', phoneNumber);
+
+    formData.append('gender', gender);
+
+    formData.append('bioData', bioData);
+
+    formData.append('password', password);
+
+    formData.append('passwordConfirm', passwordConfirm);
+
+    formData.append('profileImage', profileImage);
+
+    formData.append('userName',userName );
+
+
+
+    signUp(dispatch, formData);
   };
+ 
+
+
+
+   
+    
 
   return (
     <div className="main-page-signup">
 
     <div className="form signup-form">
+      <h3>SIGN-UP</h3>
       <form>
         <div className="row mb-4">
           <div className="col">
@@ -92,7 +120,7 @@ const SignUpForm = () => {
           <TextField
             className="textfield"
             label="Username"
-            value={username}
+           
             onChange={(e: any) => {
               setUsername(e.target.value);
             }}
@@ -110,14 +138,11 @@ const SignUpForm = () => {
           />
         </div>
         <div className="form-outline mb-4">
-          <TextField
-            className="textfield"
-            label="Profile Image"
-            value={profileImage}
-            onChange={(e: any) => {
-              setProfileImage(e.target.value);
-            }}
-          />
+        <input 
+        type="file"
+        onChange={(e:any)=>setProfileImage(e.target.files[0])}
+        />
+          
         </div>
         <div className="form-outline mb-4">
           <TextField
@@ -151,7 +176,7 @@ const SignUpForm = () => {
                 className="textfield"
                 type="password"
                 label="Password"
-                value={confirmPassword}
+                value={passwordConfirm}
                 onChange={(e: any) => {
                   setConfirmPassword(e.target.value);
                 }}

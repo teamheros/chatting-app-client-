@@ -1,15 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 .main-page {
   margin-left: 5%;
   transform: translate(0%, 100%);
 }
 .main-page h1 {
-  font-family: "Play", sans-serif;
+  /* font-family: "Play", sans-serif; */
   font-size: 70px;
   font-weight: bolder;
   color: rgb(27, 87, 250);
+  font-family: 'Michroma', sans-serif;
 }
 
 .main-page h2 {

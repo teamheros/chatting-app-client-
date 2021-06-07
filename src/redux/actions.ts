@@ -1,4 +1,4 @@
-import { FORM_DISPLAY, USERS_CHAT } from "./actionTypes"
+import { FORM_DISPLAY, SET_ALL_USERS, USERS_CHAT } from "./actionTypes"
 
 export const selectForm = (form : string) =>{
     return {
@@ -11,5 +11,12 @@ export const setChatsToDisplay = (chats : string[]) =>{
     return {
         type : USERS_CHAT,
         payload : chats
+    }
+}
+
+export const setAllUsers = (users : any) =>{
+    return {
+        type : SET_ALL_USERS,
+        payload : users
     }
 }
